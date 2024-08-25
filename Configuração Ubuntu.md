@@ -101,13 +101,19 @@ para Linux. Na ocasião da escrita deste texto a última versão disponível era
 de outubro de 2021. Copie o endereço do link
 [gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2](https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2).
 
+**Versão Atualizada**
+A versão atualizada, vista em 25/08/2024 está no link: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
+
+Mais precisamente se deve baixar a: arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz
+
+**O código abaixo foi corrigido por mim**
 Em seguida navegue até o diretório Downloads e baixe o **toolchain**
 
 ```console
 foo@bar$ cd
 foo@bar$ cd Downloads
-foo@bar$ wget \
-https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+foo@bar$ wget https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz
+
 ```
 
 Após o término do download descompacte o arquivo no diretório ***/usr/share***.
