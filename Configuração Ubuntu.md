@@ -357,7 +357,7 @@ foo@bar$ st-trace --version
 foo@bar$ st-util --version
 ```
 
-![Ubuntu terminal](./images/4.png "Ubuntu terminal")
+![Ubuntu terminal](./images/5.png "Ubuntu terminal")
 
 
 ## 7 - Instalação do IDE Visual Studio Code
@@ -394,7 +394,7 @@ utilizando as teclas de atalho **CTRL + SHIFT + X** pesquise pela extensão
 **Remote - WSL** e realize a instalação. Pode ser necessário reiniciar o
 **VS Code**.
 
-![VS Code](./images/vscode-install-remote-wsl.jpg "VS Code")
+![VS Code](./images/6.png "VS Code")
 
 Para instalar as ferramentas de suporte à edição de código em Linguagem C
 pesquise na loja de extensões por **C/C++** e instale as seguintes extensões
