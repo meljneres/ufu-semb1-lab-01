@@ -216,7 +216,6 @@ foo@bar$ cd
 foo@bar$ cd Downloads
 foo@bar$ git clone https://git.code.sf.net/p/openocd/code openocd-code
 ```
-**pode ser que apareça que o diretorio ja existe, é pq ja foi feito antes**
 
 ![Ubuntu terminal](./images/ubuntu-openocd-clone.jpg "Ubuntu terminal")
 
@@ -326,15 +325,14 @@ foo@bar$ cd stlink-tools
 foo@bar$ git tag
 ```
 
-![Ubuntu terminal](./images/ubuntu-stlink-tags.jpg "Ubuntu terminal")
+![Ubuntu terminal](./images/2.png "Ubuntu terminal")
 
 Desejamos compilar a versão estável mais recente logo, necessitamos alterar
 o *branch* para a *tag* da versão desejada:
 
 ```console
-foo@bar$ git switch -c v1.7.0
+foo@bar$ git switch -c v1.8.0
 ```
-MUDAR PARA A V8
 
 Para compilar e instalar as ferramentas **stlink** execute os seguintes comandos
 
@@ -359,9 +357,8 @@ foo@bar$ st-trace --version
 foo@bar$ st-util --version
 ```
 
-![Ubuntu terminal](./images/ubuntu-stlink-test.jpg "Ubuntu terminal")
+![Ubuntu terminal](./images/4.png "Ubuntu terminal")
 
-*trocar pra minha foto*
 
 ## 7 - Instalação do IDE Visual Studio Code
 
