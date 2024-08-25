@@ -142,7 +142,7 @@ foo@bar$ arm-none-eabi-gdb --version
 
 **Se você instalou a versão atualizada, provavelmente aparecerá o seguinte erro para o comando "arm-none-eabi-gdb --version":**
 
-(colocar a foto 1)
+![Ubuntu terminal](./images/1.png "Ubuntu terminal")
 
 **Isso ocorre pois o sistema provavelmente tem a versão 6 e a toolchain está procurando pela versão 5 da biblioteca.**
 
@@ -164,9 +164,7 @@ foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-l
 foo@bar$ arm-none-eabi-gdb --version
 ```
 
-*colocar foto 2
-
-![Ubuntu terminal](./images/ubuntu-toolchain-test.jpg "Ubuntu terminal")
+![Ubuntu terminal](./images/2.png "Ubuntu terminal")
 
 ## 6 - Instalação das ferramentas de gravação e depuração de código
 
