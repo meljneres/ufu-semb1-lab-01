@@ -97,17 +97,12 @@ foo@bar$ man ls
 
 Para instalar o **GCC ARM Toolchain** devemos ir até o website indicado na
 referência [6] e baixar o arquivo com uma versão pré-compilada do *toolchain*
-para Linux. Na ocasião da escrita deste texto a última versão disponível era
-de outubro de 2021. Copie o endereço do link
-[gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2](https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2).
+para Linux. **A última versão disponível no dia da escrita desse texto (25/08/2024) era de julho de 2024. Esse é o endereço do link: [arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz
+](https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz)**
 
-**Versão Atualizada**
-A versão atualizada, vista em 25/08/2024 está no link: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
+Portanto, é só seguir os seguintes comandos:
 
-Mais precisamente se deve baixar a: arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz
-
-**O código abaixo foi corrigido por mim**
-Em seguida navegue até o diretório Downloads e baixe o **toolchain**
+Navegue até o diretório Downloads e baixe o **toolchain**
 
 ```console
 foo@bar$ cd
@@ -119,37 +114,23 @@ foo@bar$ wget https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/bi
 Após o término do download descompacte o arquivo no diretório ***/usr/share***.
 
 ```console
-foo@bar$ sudo tar xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /usr/share/
+foo@bar$ sudo tar xJf arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz -C /usr/share/
 ```
-
-novo comando: sudo tar xJf arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz -C /usr/share/
-
 
 Para facilitar a utilização vamos criar links simbólicos dos programas fornecidos pelo
 **toolchain** no diretório ***/usr/bin/***
 
 ```console
-foo@bar$ sudo ln -s /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/* \
-> /usr/bin/
+foo@bar$ sudo ln -s /usr/share/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/* /usr/bin/
 ```
-novo comando: sudo ln -s /usr/share/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/* /usr/bin/
-
 
 Por fim, precisamos instalar as dependências necessárias para a utilização do **toolchain**
 
 ```console
 foo@bar$ sudo apt install libncurses-dev libtinfo-dev
-foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 \
-> /usr/lib/x86_64-linux-gnu/libncurses.so.5
-foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 \
-> /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
+foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
 ```
-
-novo comando: 
-sudo apt install libncurses-dev libtinfo-dev
-sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
-sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
-
 
 Podemos testar se o *toolchain* foi instalada correntamente por meio dos comandos:
 
@@ -159,28 +140,31 @@ foo@bar$ arm-none-eabi-g++ --version
 foo@bar$ arm-none-eabi-gdb --version
 ```
 
-arm-none-eabi-gcc --version
-arm-none-eabi-g++ --version
-arm-none-eabi-gdb --version
+**Se você instalou a versão atualizada, provavelmente aparecerá o seguinte erro para o comando "arm-none-eabi-gdb --version":**
 
-Se você instalou a versão atualizada, provavelmente aparecerá isso para o comando "arm-none-eabi-gdb --version"
+(colocar a foto 1)
 
-(colocar a foto do erro)
+**Isso ocorre pois o sistema provavelmente tem a versão 6 e a toolchain está procurando pela versão 5 da biblioteca.**
 
-Isso ocorre pois o sistema provavelmente tem a versão 6 e a toolchain está procurando pela versão 5 da biblioteca.
+**Para consertar, primeiro verifique se a versão 6 da biblioteca está instalada:**
 
-Para consertar, primeiro verifique se a versão 6 da biblioteca está instalada:
-sudo apt install libncursesw6
+```console
+foo@bar$ sudo apt install libncursesw6
+```
 
-Depois, crie um link simbólico apontando para a libncursesw.so.6:
+**Crie um link simbólico apontando para a libncursesw.so.6:**
 
-sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncursesw.so.5
+```console
+foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncursesw.so.5
+```
 
-Depois teste rodar novamente o código:
+**Depois teste rodar novamente o código:**
 
-arm-none-eabi-gdb --version
+```console
+foo@bar$ arm-none-eabi-gdb --version
+```
 
-*colocar foto
+*colocar foto 2
 
 ![Ubuntu terminal](./images/ubuntu-toolchain-test.jpg "Ubuntu terminal")
 
