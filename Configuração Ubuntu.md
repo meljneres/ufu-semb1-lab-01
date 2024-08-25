@@ -163,6 +163,24 @@ arm-none-eabi-gcc --version
 arm-none-eabi-g++ --version
 arm-none-eabi-gdb --version
 
+Se você instalou a versão atualizada, provavelmente aparecerá isso para o comando "arm-none-eabi-gdb --version"
+
+(colocar a foto do erro)
+
+Isso ocorre pois o sistema provavelmente tem a versão 6 e a toolchain está procurando pela versão 5 da biblioteca.
+
+Para consertar, primeiro verifique se a versão 6 da biblioteca está instalada:
+sudo apt install libncursesw6
+
+Depois, crie um link simbólico apontando para a libncursesw.so.6:
+
+sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncursesw.so.5
+
+Depois teste rodar novamente o código:
+
+arm-none-eabi-gdb --version
+
+*colocar foto
 
 ![Ubuntu terminal](./images/ubuntu-toolchain-test.jpg "Ubuntu terminal")
 
