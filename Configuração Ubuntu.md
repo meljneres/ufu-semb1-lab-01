@@ -352,6 +352,7 @@ o *branch* para a *tag* da versão desejada:
 ```console
 foo@bar$ git switch -c v1.7.0
 ```
+MUDAR PARA A V8
 
 Para compilar e instalar as ferramentas **stlink** execute os seguintes comandos
 
