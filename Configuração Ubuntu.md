@@ -122,6 +122,9 @@ Após o término do download descompacte o arquivo no diretório ***/usr/share**
 foo@bar$ sudo tar xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /usr/share/
 ```
 
+novo comando: sudo tar xJf arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz -C /usr/share/
+
+
 Para facilitar a utilização vamos criar links simbólicos dos programas fornecidos pelo
 **toolchain** no diretório ***/usr/bin/***
 
@@ -129,6 +132,8 @@ Para facilitar a utilização vamos criar links simbólicos dos programas fornec
 foo@bar$ sudo ln -s /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/* \
 > /usr/bin/
 ```
+novo comando: sudo ln -s /usr/share/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin/* /usr/bin/
+
 
 Por fim, precisamos instalar as dependências necessárias para a utilização do **toolchain**
 
@@ -140,6 +145,12 @@ foo@bar$ sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 \
 > /usr/lib/x86_64-linux-gnu/libtinfo.so.5
 ```
 
+novo comando: 
+sudo apt install libncurses-dev libtinfo-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
+sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+
+
 Podemos testar se o *toolchain* foi instalada correntamente por meio dos comandos:
 
 ```console
@@ -147,6 +158,11 @@ foo@bar$ arm-none-eabi-gcc --version
 foo@bar$ arm-none-eabi-g++ --version
 foo@bar$ arm-none-eabi-gdb --version
 ```
+
+arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+arm-none-eabi-gdb --version
+
 
 ![Ubuntu terminal](./images/ubuntu-toolchain-test.jpg "Ubuntu terminal")
 
