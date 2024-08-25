@@ -234,6 +234,7 @@ foo@bar$ cd
 foo@bar$ cd Downloads
 foo@bar$ git clone https://git.code.sf.net/p/openocd/code openocd-code
 ```
+**pode ser que apareça que o diretorio ja existe, é pq ja foi feito antes**
 
 ![Ubuntu terminal](./images/ubuntu-openocd-clone.jpg "Ubuntu terminal")
 
