@@ -325,7 +325,7 @@ foo@bar$ cd stlink-tools
 foo@bar$ git tag
 ```
 
-![Ubuntu terminal](./images/2.png "Ubuntu terminal")
+![Ubuntu terminal](./images/3.png "Ubuntu terminal")
 
 Desejamos compilar a versão estável mais recente logo, necessitamos alterar
 o *branch* para a *tag* da versão desejada:
