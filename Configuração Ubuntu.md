@@ -379,6 +379,8 @@ foo@bar$ st-util --version
 
 ![Ubuntu terminal](./images/ubuntu-stlink-test.jpg "Ubuntu terminal")
 
+*trocar pra minha foto*
+
 ## 7 - Instalação do IDE Visual Studio Code
 
 O **Visual Studio Code** (VS Code) é um Ambiente de Desenvolvimento Integrado
